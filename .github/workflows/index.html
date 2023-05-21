@@ -29,16 +29,38 @@
       border: none;
       cursor: pointer;
     }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <img src="https://gartic.com.br/avatar.php" alt="Foto de Perfil">
-    <form>
-      <input type="text" name="userlogin" placeholder="Login">
-      <input type="password" name="senhalogin" placeholder="Senha">
+    <form onsubmit="return login()">
+      <input type="text" id="userlogin" placeholder="Login">
+      <input type="password" id="senhalogin" placeholder="Senha">
       <button type="submit">Logar</button>
     </form>
+    <div id="error" class="error-message"></div>
   </div>
+
+  <script>
+    function login() {
+      var userlogin = document.getElementById("userlogin").value;
+      var senhalogin = document.getElementById("senhalogin").value;
+
+      // Lógica de autenticação aqui
+      // ...
+
+      // Exemplo de erro de login
+      var errorElement = document.getElementById("error");
+      errorElement.textContent = "Não foi possível entrar. Verifique seu login e senha.";
+      
+      return false; // Impede o envio do formulário
+    }
+  </script>
 </body>
 </html>
